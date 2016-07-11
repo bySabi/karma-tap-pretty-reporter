@@ -10,16 +10,8 @@ module.exports = {
     prettify: function() { return require('tap-spec') },
     separator: function() { return aSeparator }
   },
-  'tap-dot': {
-    prettify: function() { return require('tap-dot') },
-    separator: function() { return aSeparator }
-  },
   'tap-min': {
     prettify: function() { return require('tap-min') },
-    separator: function() { return aSeparator }
-  },
-  'tap-difflet': {
-    prettify: function() { return require('tap-difflet') },
     separator: function() { return aSeparator }
   },
   'tap-diff': {

@@ -49,9 +49,7 @@ tapReporter: {
 ## Supported `prettifiers`
 * [faucet](https://github.com/substack/faucet)
 * [tap-spec](https://github.com/scottcorgan/tap-spec)
-* [tap-dot](https://github.com/scottcorgan/tap-dot)
 * [tap-min](https://github.com/gummesson/tap-min)
-* [tap-difflet](https://github.com/namuol/tap-difflet)
 * [tap-diff](https://github.com/axross/tap-diff)
 * [tap-notify](https://github.com/axross/tap-notify)
 * [tap-summary](https://github.com/zoubin/tap-summary)
