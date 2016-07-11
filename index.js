@@ -5,7 +5,6 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
     separatorConfig = tapReporterConfig.separator,
     log = logger.create('karma-tap-pretty-reporter'),
     out, stream = require('stream'),
-    PassThrough = require('readable-stream/passthrough'),
     path = require('path'),
     fs = require('fs'),
     EOL = require('os').EOL,

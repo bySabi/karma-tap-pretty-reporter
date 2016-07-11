@@ -1,3 +1,5 @@
+var PassThrough = require('readable-stream/passthrough');
+
 module.exports = {
   'faucet': {
     prettify: function() { return require('faucet') },
