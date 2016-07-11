@@ -8,7 +8,7 @@
 {
   "devDependencies": {
     "karma": "1.x.x",
-    "karma-tap": "2.x.x",
+    "karma-tap": "bySabi/karma-tap",
     "karma-tap-pretty-reporter": "1.x.x"
   }
 }
@@ -30,7 +30,7 @@ module.exports = function(config) {
 ```
 
 ### Using `separator`
-On Karma `autoWatch: true` mode you could need separate test run cycles. Set your own `separator` string or set to `true` for default separator. [separator]()
+On Karma `autoWatch: true` mode you could need separate test run cycles. Set your own `separator` string or set to `true` for default separator. [prettifiers.js](https://github.com/bySabi/karma-tap-pretty-reporter/blob/master/src/prettifiers.js)
 
 ### Report to a file
 Optionally you can save report to a file and turn off output to the console.
@@ -44,8 +44,8 @@ tapReporter: {
 ```
 
 ## Supported `prettifiers`
-* [faucet]()
-* [tap-spec]()
+* [faucet](https://github.com/substack/faucet)
+* [tap-spec](https://github.com/scottcorgan/tap-spec)
 
 ## Example usage
 [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
