@@ -9,10 +9,13 @@
   "devDependencies": {
     "karma": "1.x.x",
     "karma-tap": "bySabi/karma-tap",
-    "karma-tap-pretty-reporter": "1.x.x"
+    "karma-tap-pretty-reporter": "1.x.x",
+    "faucet": "0.0.1"
   }
 }
 ```
+> a `prettifier` package must be add too. See below supported prettifiers.
+
 
 ## Configuration
 ```js
