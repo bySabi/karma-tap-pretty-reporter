@@ -8,7 +8,7 @@
 {
   "devDependencies": {
     "karma": "1.x.x",
-    "karma-tap": "bySabi/karma-tap",
+    "karma-tap": "2.x.x",
     "karma-tap-pretty-reporter": "1.x.x",
     "faucet": "0.0.1"
   }
