@@ -1,0 +1,31 @@
+{
+  "name": "karma-tap-pretty-reporter",
+  "version": "1.0.0",
+  "description": "Prettifier for Karma TAP Reporter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bySabi/karma-tap-pretty-reporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bySabi/karma-tap-pretty-reporter/issues"
+  },
+  "keywords": [
+    "karma",
+    "karma-plugin",
+    "karma-reporter",
+    "pretty",
+    "prettify",
+    "prettifier",
+    "tap",
+    "tape"
+  ],
+  "devDependencies": {
+    "readable-stream": "2.x.x"
+  },
+  "author": "bySabi Files",
+  "license": "ISC"
+}
