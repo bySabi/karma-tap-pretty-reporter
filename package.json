@@ -1,6 +1,6 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Prettifier for Karma TAP Reporter",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "tape"
   ],
   "devDependencies": {
-    "readable-stream": "2.x.x"
+    "readable-stream": "^2.1.4"
   },
   "author": "bySabi Files",
   "license": "ISC"
