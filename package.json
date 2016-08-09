@@ -25,8 +25,10 @@
     "tap",
     "tape"
   ],
+  "dependencies": {
+    "readable-stream": "2.x.x"    
+  },
   "devDependencies": {
-    "readable-stream": "2.x.x",
     "eslint": "3.x.x",
     "eslint-modules-standard-deviation--es5": "1.x.x"
   },
