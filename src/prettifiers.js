@@ -31,7 +31,7 @@ module.exports = {
     separator: function() { return aSeparator }
   },
   'default': {
-    prettify: function() { return function () { return new PassThrough() }},
+    prettify: function() { return function () { return new PassThrough() } },
     separator: function() { return '' }
-   }
+  }
 }

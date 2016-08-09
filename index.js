@@ -1,17 +1,20 @@
 var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
-  var tapReporterConfig = config.tapReporter || {},
-    disableStdout = !!tapReporterConfig.disableStdout,
-    prettifierConfig = tapReporterConfig.prettifier,
-    separatorConfig = tapReporterConfig.separator,
-    log = logger.create('karma-tap-pretty-reporter'),
-    out, stream = require('stream'),
-    path = require('path'),
-    fs = require('fs'),
-    EOL = require('os').EOL,
-    prettifiers = require('./src/prettifiers.js'),
-    numbers, outputFile,
-    currentSuite,
-    separator = '';
+  var tapReporterConfig = config.tapReporter || {};
+  var disableStdout = !!tapReporterConfig.disableStdout;
+  var prettifierConfig = tapReporterConfig.prettifier;
+  var separatorConfig = tapReporterConfig.separator;
+  var log = logger.create('karma-tap-pretty-reporter');
+  var out;
+  var output;
+  var stream = require('stream');
+  var path = require('path');
+  var fs = require('fs');
+  var EOL = require('os').EOL;
+  var prettifiers = require('./src/prettifiers.js');
+  var numbers;
+  var outputFile;
+  var currentSuite;
+  var separator = '';
 
   var prettifier = prettifiers[prettifierConfig] || prettifiers['default'];
   var prettify = prettifier.prettify();
@@ -29,7 +32,7 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
 
   function writeSuite(suite) {
     suite = suite.join(' ').replace(/\./g, '_');
-    if (currentSuite != suite) {
+    if (currentSuite !== suite) {
       write(suite);
       currentSuite = suite;
     }
@@ -42,7 +45,7 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
   baseReporterDecorator(this);
 
   this.onRunStart = function() {
-    numbers = new Object();
+    numbers = {};
     output = '';
     currentSuite = '';
 
@@ -83,7 +86,9 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
   };
 
   this.onRunComplete = function(browsers, results) {
-    var total = 0, success = 0, failed = 0;
+    var total = 0;
+    var success = 0;
+    var failed = 0;
     browsers.forEach(function(browser, id) {
       total += browser.lastResult.total;
       success += browser.lastResult.success;

@@ -1,23 +1,27 @@
 # karma-tap-pretty-reporter
-> A Karma plugin to `report` and `prettify` test results in TAP.
+
+[![npm version](https://badge.fury.io/js/karma-tap-pretty-reporter.svg)](https://badge.fury.io/js/karma-tap-pretty-reporter)
+
+> a Karma plugin to `report` and `prettify` TAP test results
+
 
 ## Installation
 
-`package.json`
-```json
-{
-  "devDependencies": {
-    "karma": "1.x.x",
-    "karma-tap": "2.x.x",
-    "karma-tap-pretty-reporter": "1.x.x",
-    "faucet": "0.0.1"
-  }
-}
+### npm
+```bash
+npm install karma karma-tap karma-tap-pretty-reporter --save-dev
 ```
-> a `prettifier` package must be add too. See below supported prettifiers.
 
+### [optional] install a `prettify` package. See below supported prettifiers
+```bash
+npm install faucet --save-dev
+```
 
-## Configuration
+## Usage
+
+Add `karma.conf.js` file to project.
+
+Example:
 ```js
 // karma.conf.js
 module.exports = function(config) {
@@ -33,17 +37,21 @@ module.exports = function(config) {
 ```
 
 ### Using `separator`
-On Karma `autoWatch: true` mode you could need separate test run cycles. Set your own `separator` string or set to `true` for default separator. [prettifiers.js](https://github.com/bySabi/karma-tap-pretty-reporter/blob/master/src/prettifiers.js)
+On Karma `autoWatch` mode you could need separate test run cycles. Set your own `separator` string or set to `true` for default separator. Current default separators, [prettifiers.js](https://github.com/bySabi/karma-tap-pretty-reporter/blob/master/src/prettifiers.js)
 
 ### Report to a file
 Optionally you can save report to a file and turn off output to the console.
+
 ```js
+// karma.conf.js
+
 reporters: ['tap-pretty'],
 
 tapReporter: {
   outputFile: './test.out.tap',
   disableStdout: true            // default 'false'
 },
+
 ```
 
 ## Supported `prettifiers`
@@ -55,12 +63,17 @@ tapReporter: {
 * [tap-summary](https://github.com/zoubin/tap-summary)
 * [tap-markdown](https://github.com/Hypercubed/tap-markdown)
 
+
 ## Example usage
-[karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
+* [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
+
 
 ## Contributing
 * Documentation improvement
 * Feel free to send any PR
 
-## LICENSE
-ISC
+## License
+
+[ISC][isc-license]
+
+[isc-license]:./LICENSE
