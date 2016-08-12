@@ -26,10 +26,10 @@
     "tape"
   ],
   "dependencies": {
-    "readable-stream": "2.x.x"    
+    "readable-stream": "2.x.x"
   },
   "devDependencies": {
-    "eslint": "3.x.x",
+    "eslint": "3.3.0",
     "eslint-modules-standard-deviation--es5": "1.x.x"
   },
   "author": "bySabi Files",
