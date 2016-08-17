@@ -1,11 +1,12 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "a Karma TAP Reporter and Prettifier",
   "main": "index.js",
   "scripts": {
+    "karma": "karma start",
     "lint": "eslint . --ext .js",
-    "testonly": "echo \"Error: no test specified\" && exit 1",
+    "testonly": "npm run karma",
     "test": "npm run lint && npm run testonly"
   },
   "repository": {
@@ -26,11 +27,20 @@
     "tape"
   ],
   "dependencies": {
-    "readable-stream": "2.x.x"    
+    "readable-stream": "2.x.x"
   },
   "devDependencies": {
     "eslint": "3.x.x",
-    "eslint-modules-standard-deviation--es5": "1.x.x"
+    "eslint-config-standard-deviation--es5": "1.x.x",
+    "eslint-modules-standard-deviation--es5": "1.x.x",
+    "karma": "1.x.x",
+    "karma-tap": "2.x.x",
+    "karma-jsdom-launcher": "3.x.x",
+    "karma-browserify": "5.x.x",
+    "karma-tap-pretty-reporter": "1.x.x",
+    "browserify": "13.x.x",
+    "watchify": "3.x.x",
+    "tape": "4.x.x"
   },
   "author": "bySabi Files",
   "license": "ISC"
