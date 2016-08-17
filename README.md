@@ -1,8 +1,10 @@
 # karma-tap-pretty-reporter
 
 [![npm version](https://badge.fury.io/js/karma-tap-pretty-reporter.svg)](https://badge.fury.io/js/karma-tap-pretty-reporter)
+[![npm downloads](https://img.shields.io/npm/dm/karma-tap-pretty-reporter.svg?style=flat-square)](https://www.npmjs.com/package/karma-tap-pretty-reporter)
+[![Build Status](https://travis-ci.org/bySabi/karma-tap-pretty-reporter.svg?branch=master)](https://travis-ci.org/bySabi/karma-tap-pretty-reporter)
 
-> a Karma plugin to `report` and `prettify` TAP test results
+> a Karma reporter plugin for `report` and `prettify` TAP test results
 
 
 ## Installation
