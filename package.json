@@ -34,7 +34,7 @@
     "eslint-config-standard-deviation--es5": "1.x.x",
     "eslint-modules-standard-deviation--es5": "1.x.x",
     "karma": "1.x.x",
-    "karma-tap": "2.x.x",
+    "karma-tap": "3.0.1",
     "karma-jsdom-launcher": "3.x.x",
     "karma-browserify": "5.x.x",
     "karma-tap-pretty-reporter": "1.x.x",
