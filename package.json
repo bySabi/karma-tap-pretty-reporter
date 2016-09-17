@@ -35,7 +35,7 @@
   "devDependencies": {
     "eslint": "3.x.x",
     "eslint-config-standard-deviation--es5": "1.x.x",
-    "eslint-modules-standard-deviation--es5": "1.x.x",
+    "eslint-modules-standard-deviation--es5": "1.0.4",
     "karma": "1.x.x",
     "karma-tap": "3.x.x",
     "karma-jsdom-launcher": "3.x.x",
