@@ -8,6 +8,7 @@
 > a Karma reporter plugin for `report` and `prettify` TAP test results
 
 
+
 ## Installation
 
 ### npm
