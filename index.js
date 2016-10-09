@@ -3,7 +3,6 @@ var path = require('path');
 var fs = require('fs');
 var EOL = require('os').EOL;
 
-
 var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
   var reporterConfig = config.tapReporter || {};
   var log = logger.create('karma-tap-pretty-reporter');
@@ -12,7 +11,6 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
   var numbers;
   var outputFile;
   var currentSuite;
-
 
   /**
    * save all data that is coming in to the `data` variable for later use and
