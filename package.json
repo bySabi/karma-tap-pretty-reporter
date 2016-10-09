@@ -29,9 +29,6 @@
   "peerDependencies": {
     "karma-tap": "3.x.x"
   },
-  "dependencies": {
-    "readable-stream": "2.x.x"
-  },
   "devDependencies": {
     "eslint": "3.x.x",
     "eslint-config-standard-deviation--es5": "1.x.x",

@@ -32,8 +32,8 @@ module.exports = function(config) {
     reporters: ['tap-pretty'],
 
     tapReporter: {
-      prettifier: 'tap-spec',       // default 'standard TAP'
-      separator: '****-----****'    // default 'false'
+      prettify: require('faucet'), // default 'standard TAP'
+      separator: '****************************' // default 'false'
     },
   });
 };
