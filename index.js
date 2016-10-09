@@ -46,8 +46,12 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
       out = new stream.Readable();
       out._read = function () { };
 
-      if (reporterConfig.prettify) out.pipe(reporterConfig.prettify());
-      out.pipe(process.stdout);
+      if (reporterConfig.prettify) {
+        out.pipe(process.stdout);
+        out.pipe(reporterConfig.prettify()).pipe(process.stdout);
+      } else {
+        out.pipe(process.stdout);
+      }
 
       // output Test `session` separator
       if (reporterConfig.separator) console.log(reporterConfig.separator);

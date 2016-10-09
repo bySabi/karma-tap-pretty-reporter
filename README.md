@@ -32,15 +32,15 @@ module.exports = function(config) {
     reporters: ['tap-pretty'],
 
     tapReporter: {
-      prettify: require('faucet'), // default 'standard TAP'
-      separator: '****************************' // default 'false'
+      prettify: require('faucet'), // default 'standard TAP' output
+      separator: '****************************'
     },
   });
 };
 ```
 
 ### Using `separator`
-On Karma `autoWatch` mode you could need separate test run cycles. Set your own `separator` string or set to `true` for default separator. Current default separators, [prettifiers.js](https://github.com/bySabi/karma-tap-pretty-reporter/blob/master/src/prettifiers.js)
+On Karma `autoWatch` mode you could need separate test run cycles output. Create a `separator` string for this purpouse.
 
 ### Report to a file
 Optionally you can save report to a file and turn off output to the console.
@@ -70,6 +70,13 @@ tapReporter: {
 ## Example usage
 * [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
 
+## Credits
+
+### author
+* bySabi Files <> [@bySabi](https://github.com/bySabi)
+
+### contributors
+* Rostyslav Diachok <> [@infernalmaster](https://github.com/infernalmaster)
 
 ## Contributing
 * Documentation improvement

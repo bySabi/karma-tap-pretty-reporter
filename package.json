@@ -1,6 +1,6 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "a Karma TAP Reporter and Prettifier",
   "main": "index.js",
   "scripts": {
@@ -41,6 +41,9 @@
     "watchify": "3.x.x",
     "tape": "4.x.x"
   },
-  "author": "bySabi Files",
+  "author": "bySabi Files <> (https://github.com/bySabi)",
+  "contributors": [
+    "Rostyslav Diachok <> (https://github.com/infernalmaster)"
+  ],
   "license": "ISC"
 }
