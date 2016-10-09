@@ -1,23 +1,18 @@
-var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
-  var tapReporterConfig = config.tapReporter || {};
-  var disableStdout = !!tapReporterConfig.disableStdout;
-  var prettifierConfig = tapReporterConfig.prettifier;
-  var separatorConfig = tapReporterConfig.separator;
+var stream = require('stream');
+var path = require('path');
+var fs = require('fs');
+var EOL = require('os').EOL;
+
+
+var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
+  var reporterConfig = config.tapReporter || {};
   var log = logger.create('karma-tap-pretty-reporter');
   var out;
   var output;
-  var stream = require('stream');
-  var path = require('path');
-  var fs = require('fs');
-  var EOL = require('os').EOL;
-  var prettifiers = require('./src/prettifiers.js');
   var numbers;
   var outputFile;
   var currentSuite;
-  var separator = '';
 
-  var prettifier = prettifiers[prettifierConfig] || prettifiers['default'];
-  var prettify = prettifier.prettify();
 
   /**
    * save all data that is coming in to the `data` variable for later use and
@@ -25,7 +20,7 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
    */
   function write(data) {
     output = output + data;
-    if (!disableStdout) {
+    if (!reporterConfig.disableStdout) {
       out.push(data);
     }
   }
@@ -38,8 +33,8 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
     }
   }
 
-  if (tapReporterConfig.outputFile) {
-    outputFile = path.resolve(config.basePath, tapReporterConfig.outputFile)
+  if (reporterConfig.outputFile) {
+    outputFile = path.resolve(config.basePath, reporterConfig.outputFile)
   }
 
   baseReporterDecorator(this);
@@ -49,13 +44,15 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
     output = '';
     currentSuite = '';
 
-    if (!disableStdout) {
+    if (!reporterConfig.disableStdout) {
       out = new stream.Readable();
-      out._read = function () {};
-      out.pipe(prettify()).pipe(process.stdout);
+      out._read = function () { };
+
+      if (reporterConfig.prettify) out.pipe(reporterConfig.prettify());
+      out.pipe(process.stdout);
 
       // output Test `session` separator
-      if (separator) console.log(separator);
+      if (reporterConfig.separator) console.log(reporterConfig.separator);
     }
 
     write('TAP version 13' + EOL);
@@ -108,14 +105,9 @@ var TAPReporter = function(baseReporterDecorator, config, logger, helper) {
     }
     write(EOL);
 
-    if (!disableStdout) {
+    if (!reporterConfig.disableStdout) {
       // close stream
       out.push(null);
-
-      // set Tests `session` separator
-      if (separatorConfig) {
-        separator = typeof separatorConfig !== 'boolean' ? separatorConfig : prettifier.separator();
-      }
     }
 
     if (outputFile) {
