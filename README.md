@@ -67,6 +67,22 @@ tapReporter: {
 * [tap-markdown](https://github.com/Hypercubed/tap-markdown)
 * [tap-difflet](https://github.com/namuol/tap-difflet)
 
+## Use Cases
+
+### Show only 'failed' test
+Install `tap-difflet` package
+```bash
+npm install tap-difflet --save-dev
+```
+Add settings to `tapReporter` on karma.conf.js
+```js
+tapReporter: {
+      // outputFile: './unit.tap',
+      prettify: function() { return require('tap-difflet')({ pessimistic: true }); },
+      separator: '****************************',
+    },
+```
+
 ## Example usage
 * [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
 
