@@ -65,7 +65,7 @@ tapReporter: {
 * [tap-notify](https://github.com/axross/tap-notify)
 * [tap-summary](https://github.com/zoubin/tap-summary)
 * [tap-markdown](https://github.com/Hypercubed/tap-markdown)
-
+* [tap-difflet](https://github.com/namuol/tap-difflet)
 
 ## Example usage
 * [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)

@@ -44,7 +44,8 @@ module.exports = function(config) {
     // 'tap-notify', 'tap-summary', 'tap-markdown'
     tapReporter: {
       // outputFile: './unit.tap',
-      separator: false
+      // prettify: require('tap-difflet'),
+      // separator: '----------------------------------------'
     },
 
     // enable / disable colors in the output (reporters and logs)
