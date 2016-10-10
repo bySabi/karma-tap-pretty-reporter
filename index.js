@@ -47,14 +47,15 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
       out._read = function () { };
 
       if (reporterConfig.prettify) {
-        out.pipe(process.stdout);
         out.pipe(reporterConfig.prettify()).pipe(process.stdout);
       } else {
         out.pipe(process.stdout);
       }
 
       // output Test `session` separator
-      if (reporterConfig.separator) console.log(reporterConfig.separator);
+      if (reporterConfig.separator) {
+        console.log(reporterConfig.separator);
+      }
     }
 
     write('TAP version 13' + EOL);
