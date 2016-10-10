@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/karma-tap-pretty-reporter.svg)](https://badge.fury.io/js/karma-tap-pretty-reporter)
 [![npm downloads](https://img.shields.io/npm/dm/karma-tap-pretty-reporter.svg?style=flat-square)](https://www.npmjs.com/package/karma-tap-pretty-reporter)
 [![Build Status](https://travis-ci.org/bySabi/karma-tap-pretty-reporter.svg?branch=master)](https://travis-ci.org/bySabi/karma-tap-pretty-reporter)
+[![Windows Tests](https://img.shields.io/appveyor/ci/bySabi/karma-tap-pretty-reporter/master.svg?label=Windows%20Tests)](https://ci.appveyor.com/project/bySabi/karma-tap-pretty-reporter)
 [![Known Vulnerabilities](https://snyk.io/test/github/bysabi/karma-tap-pretty-reporter/badge.svg)](https://snyk.io/test/github/bysabi/karma-tap-pretty-reporter)
 
 > a Karma reporter plugin for `report` and `prettify` TAP test results
