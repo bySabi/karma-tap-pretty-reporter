@@ -41,11 +41,11 @@ module.exports = function(config) {
     reporters: ['tap-pretty'],
 
     // prettifier's: 'faucet', 'tap-spec', 'tap-min', 'tap-diff',
-    // 'tap-notify', 'tap-summary', 'tap-markdown'
+    // 'tap-notify', 'tap-summary', 'tap-markdown', 'tap-difflet'
     tapReporter: {
       // outputFile: './unit.tap',
-      // prettify: require('tap-difflet'),
-      // separator: '----------------------------------------'
+      prettify: require('faucet'),
+      separator: '----------------------------------------'
     },
 
     // enable / disable colors in the output (reporters and logs)
@@ -54,7 +54,7 @@ module.exports = function(config) {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR ||
     // config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: process.env.CONTINUOUS_INTEGRATION === 'true' ? config.LOG_INFO : config.LOG_DISABLE,
 
     // enable / disable browser logs on terminal
     browserConsoleLogOptions: {

@@ -2,14 +2,18 @@ var stream = require('stream');
 var path = require('path');
 var fs = require('fs');
 var EOL = require('os').EOL;
+var firstRun = true;
 
 var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   var log = logger.create('karma-tap-pretty-reporter');
   var config = rootConfig.tapReporter || {};
   var disableStdout = !!config.disableStdout;
   var prettify = config.prettify;
-  var separator = config.seperator;
   var outputFile = config.outputFile && path.resolve(rootConfig.basePath, config.outputFile);
+  var logLevel = rootConfig.logLevel;
+  // don´t pollute output
+  // show 'separator' if logLevel is not LOG_INFO nor LOG_DEBUG
+  var separator = logLevel !== 'INFO' && logLevel !== 'DEBUG' ? config.separator : '';
 
   var out; // ouput stream
   var output, numbers, currentSuite; // working vars
@@ -36,13 +40,14 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
         out.pipe(process.stdout);
       }
 
-      // output 'separator' per test execution with autowatch mode on
-      if (separator) {
-        console.log(separator);
+      // output 'separator' per test execution with autoWatch mode on
+      if (separator && !firstRun) {
+        this.write(separator + EOL);
       }
     }
 
     write('TAP version 13' + EOL);
+    firstRun = false;
   }
 
   this.onBrowserStart = function(browser) {
@@ -128,4 +133,4 @@ TAPReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper'];
 
 module.exports = {
   'reporter:tap-pretty': ['type', TAPReporter]
-}
+};
