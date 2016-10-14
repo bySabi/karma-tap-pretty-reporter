@@ -42,7 +42,7 @@ module.exports = function(config) {
 
 ### Using `separator`
 On Karma `autoWatch` mode maybe we need separate test run cycles output. Create a `separator` string for this purpose.
-> In order of not pollute output `separator` will show only if LogLevel is different of `LOG_INFO` nor `LOG_DEBUG`
+> In order of not pollute output, `separator` will be shown only if LogLevel is different of `LOG_INFO` nor `LOG_DEBUG`
 
 ### Report to a file
 Optionally you can save report to a file and turn off output to the console.
