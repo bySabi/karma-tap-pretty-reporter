@@ -3,36 +3,20 @@ var path = require('path');
 var fs = require('fs');
 var EOL = require('os').EOL;
 
-var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
-  var reporterConfig = config.tapReporter || {};
+var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   var log = logger.create('karma-tap-pretty-reporter');
-  var out;
-  var output;
-  var numbers;
-  var outputFile;
-  var currentSuite;
+  var config = rootConfig.tapReporter || {};
+  var disableStdout = !!config.disableStdout;
+  var prettify = config.prettify;
+  var separator = config.seperator;
+  var outputFile = config.outputFile && path.resolve(rootConfig.basePath, config.outputFile);
 
-  /**
-   * save all data that is coming in to the `data` variable for later use and
-   * proxy input to `this.write`
-   */
-  function write(data) {
-    output = output + data;
-    if (!reporterConfig.disableStdout) {
-      out.push(data);
-    }
-  }
+  var out; // ouput stream
+  var output, numbers, currentSuite; // working vars
 
-  function writeSuite(suite) {
-    suite = suite.join(' ').replace(/\./g, '_');
-    if (currentSuite !== suite) {
-      write(suite);
-      currentSuite = suite;
-    }
-  }
-
-  if (reporterConfig.outputFile) {
-    outputFile = path.resolve(config.basePath, reporterConfig.outputFile)
+  if (prettify && typeof prettify !== 'function') {
+    log.warn('prettify option is not a function');
+    prettify = null;
   }
 
   baseReporterDecorator(this);
@@ -42,33 +26,33 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
     output = '';
     currentSuite = '';
 
-    if (!reporterConfig.disableStdout) {
+    if (!disableStdout) {
       out = new stream.Readable();
-      out._read = function () { };
+      out._read = function() {}
 
-      if (reporterConfig.prettify) {
-        out.pipe(reporterConfig.prettify()).pipe(process.stdout);
+      if (prettify) {
+        out.pipe(prettify()).pipe(process.stdout);
       } else {
         out.pipe(process.stdout);
       }
 
-      // output Test `session` separator
-      if (reporterConfig.separator) {
-        console.log(reporterConfig.separator);
+      // output 'separator' per test execution with autowatch mode on
+      if (separator) {
+        console.log(separator);
       }
     }
 
     write('TAP version 13' + EOL);
-  };
+  }
 
   this.onBrowserStart = function(browser) {
     numbers[browser.id] = 0;
-  };
+  }
 
   this.specSuccess = function(browser, result) {
     writeSuite(result.suite);
     write('ok ' + ++numbers[browser.id] + ' ' + result.description + EOL);
-  };
+  }
 
   this.specFailure = function(browser, result) {
     var resultLog = JSON.parse(result.log[0]);
@@ -79,11 +63,11 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
       write('    ' + key + ': ' + resultLog[key] + EOL);
     }
     write('  ...' + EOL);
-  };
+  }
 
   this.specSkipped = function(browser, result) {
     write('# SKIP' + ' ' + result.description);
-  };
+  }
 
   this.onRunComplete = function(browsers, results) {
     var total = 0;
@@ -108,7 +92,7 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
     }
     write(EOL);
 
-    if (!reporterConfig.disableStdout) {
+    if (!disableStdout) {
       // close stream
       out.push(null);
     }
@@ -122,11 +106,26 @@ var TAPReporter = function (baseReporterDecorator, config, logger, helper) {
         fs.writeFileSync(outputFile, output);
       });
     }
-  };
-};
+  }
+
+  function write(data) {
+    output = output + data;
+    if (!disableStdout) {
+      out.push(data);
+    }
+  }
+
+  function writeSuite(suite) {
+    suite = suite.join(' ').replace(/\./g, '_');
+    if (currentSuite !== suite) {
+      write(suite);
+      currentSuite = suite;
+    }
+  }
+}
 
 TAPReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper'];
 
 module.exports = {
   'reporter:tap-pretty': ['type', TAPReporter]
-};
+}
