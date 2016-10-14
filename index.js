@@ -2,7 +2,6 @@ var stream = require('stream');
 var path = require('path');
 var fs = require('fs');
 var EOL = require('os').EOL;
-var firstRun = true;
 
 var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   var log = logger.create('karma-tap-pretty-reporter');
@@ -15,6 +14,7 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   // show 'separator' if logLevel is not LOG_INFO nor LOG_DEBUG
   var separator = logLevel !== 'INFO' && logLevel !== 'DEBUG' ? config.separator : '';
 
+  var firstRun = true;
   var out; // ouput stream
   var output, numbers, currentSuite; // working vars
 
