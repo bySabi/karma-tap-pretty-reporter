@@ -7,21 +7,22 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   var log = logger.create('karma-tap-pretty-reporter');
   var config = rootConfig.tapReporter || {};
   var disableStdout = !!config.disableStdout;
-  var prettify = config.prettify;
   var outputFile = config.outputFile && path.resolve(rootConfig.basePath, config.outputFile);
   var logLevel = rootConfig.logLevel;
   // don´t pollute output
   // show 'separator' if logLevel is not LOG_INFO nor LOG_DEBUG
   var separator = logLevel !== 'INFO' && logLevel !== 'DEBUG' ? config.separator : '';
+  var prettify;
+  if (config.prettify && typeof config.prettify !== 'function') {
+    log.warn('prettify option is not a function');
+    prettify = null;
+  } else {
+    prettify = config.prettify;
+  }
 
   var firstRun = true;
   var out; // ouput stream
-  var output, numbers, currentSuite; // working vars
-
-  if (prettify && typeof prettify !== 'function') {
-    log.warn('prettify option is not a function');
-    prettify = null;
-  }
+  var numbers, output, currentSuite; // working vars
 
   baseReporterDecorator(this);
 
