@@ -6,7 +6,7 @@ var EOL = require('os').EOL;
 var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   var log = logger.create('karma-tap-pretty-reporter');
   var config = rootConfig.tapReporter || {};
-  var disableStdout = !!config.disableStdout;
+  var disableStdout = config.disableStdout === true;
   var outputFile = config.outputFile && path.resolve(rootConfig.basePath, config.outputFile);
   var logLevel = rootConfig.logLevel;
   // don´t pollute output
