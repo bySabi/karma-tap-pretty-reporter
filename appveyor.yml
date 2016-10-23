@@ -1,8 +1,8 @@
 environment:
   matrix:
-    - nodejs_version: '6' # stable
-    - nodejs_version: '6' # dev
-    - nodejs_version: '4' # LTS
+    - nodejs_version: '4' # old LTS
+    - nodejs_version: '5' # dev
+    - nodejs_version: '6' # new LTS
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm cache clear
