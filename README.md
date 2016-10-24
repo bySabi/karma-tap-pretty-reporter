@@ -85,8 +85,8 @@ tapReporter: {
     },
 ```
 
-## Example usage
-* [karma--tap--boilerplate](https://github.com/bySabi/karma--tap--boilerplate)
+## Example
+- [karma-tap-pretty-reporter--example](https://github.com/bySabi/karma-tap-pretty-reporter/tree/example)
 
 ## Credits
 
