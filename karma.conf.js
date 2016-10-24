@@ -1,19 +1,9 @@
 /* global process */
-// Karma configuration
 
 module.exports = function(config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-
-    // List plugins explicitly, since autoloading karma-tap
-    // won't work here
-    plugins: [
-      'karma-browserify',
-      'karma-jsdom-launcher',
-      'karma-tap',
-      require('./')
-    ],
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -54,7 +44,7 @@ module.exports = function(config) {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR ||
     // config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: process.env.CONTINUOUS_INTEGRATION === 'true' ? config.LOG_INFO : config.LOG_DISABLE,
+    logLevel: config.LOG_ERROR,
 
     // enable / disable browser logs on terminal
     browserConsoleLogOptions: {
@@ -70,6 +60,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: process.env.CONTINUOUS_INTEGRATION === 'true'
+    singleRun: false
   });
 };
