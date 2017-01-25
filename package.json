@@ -30,7 +30,7 @@
     "karma-tap": "3.x.x"
   },
   "devDependencies": {
-    "eslint": "3.x.x",
+    "eslint": "3.14.1",
     "eslint-config-standard-deviation--es5": "1.x.x",
     "eslint-modules-standard-deviation--es5": "1.x.x",
     "faucet": "*",
