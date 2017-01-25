@@ -37,7 +37,7 @@
     "karma": "1.x.x",
     "karma-tap": "3.x.x",
     "karma-jsdom-launcher": "4.x.x",
-    "karma-browserify": "5.x.x",
+    "karma-browserify": "5.1.1",
     "browserify": "13.x.x",
     "watchify": "3.x.x",
     "tape": "4.x.x"
