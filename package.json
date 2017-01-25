@@ -39,7 +39,7 @@
     "karma-jsdom-launcher": "4.x.x",
     "karma-browserify": "5.x.x",
     "browserify": "13.x.x",
-    "watchify": "3.x.x",
+    "watchify": "3.9.0",
     "tape": "4.x.x"
   },
   "author": "bySabi Files <> (https://github.com/bySabi)",
