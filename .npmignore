@@ -1,6 +1,6 @@
 CHANGELOG.md
 CONTRIBUTING.md
 test
-.eslintrc.js
-images
 .travis.yml
+appveyor.yml
+karma.conf.js

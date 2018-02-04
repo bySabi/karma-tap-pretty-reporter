@@ -26,14 +26,14 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
 
   baseReporterDecorator(this);
 
-  this.onRunStart = function() {
+  this.onRunStart = function () {
     numbers = {};
     output = '';
     currentSuite = '';
 
     if (!disableStdout) {
       out = new stream.Readable();
-      out._read = function() {}
+      out._read = function () {};
 
       if (prettify) {
         out.pipe(prettify()).pipe(process.stdout);
@@ -49,18 +49,18 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
 
     write('TAP version 13' + EOL);
     firstRun = false;
-  }
+  };
 
-  this.onBrowserStart = function(browser) {
+  this.onBrowserStart = function (browser) {
     numbers[browser.id] = 0;
-  }
+  };
 
-  this.specSuccess = function(browser, result) {
+  this.specSuccess = function (browser, result) {
     writeSuite(result.suite);
     write('ok ' + ++numbers[browser.id] + ' ' + result.description + EOL);
-  }
+  };
 
-  this.specFailure = function(browser, result) {
+  this.specFailure = function (browser, result) {
     var resultLog = JSON.parse(result.log[0]);
     writeSuite(result.suite);
     write('not ok ' + ++numbers[browser.id] + ' ' + result.description + EOL);
@@ -69,17 +69,17 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
       write('    ' + key + ': ' + resultLog[key] + EOL);
     }
     write('  ...' + EOL);
-  }
+  };
 
-  this.specSkipped = function(browser, result) {
+  this.specSkipped = function (browser, result) {
     write('# SKIP' + ' ' + result.description);
-  }
+  };
 
-  this.onRunComplete = function(browsers, results) {
+  this.onRunComplete = function (browsers, results) {
     var total = 0;
     var success = 0;
     var failed = 0;
-    browsers.forEach(function(browser, id) {
+    browsers.forEach(function (browser, id) {
       total += browser.lastResult.total;
       success += browser.lastResult.success;
       failed += browser.lastResult.failed;
@@ -112,23 +112,23 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
         fs.writeFileSync(outputFile, output);
       });
     }
-  }
+  };
 
-  function write(data) {
+  function write (data) {
     output = output + data;
     if (!disableStdout) {
       out.push(data);
     }
   }
 
-  function writeSuite(suite) {
+  function writeSuite (suite) {
     suite = suite.join(' ').replace(/\./g, '_');
     if (currentSuite !== suite) {
       write(suite);
       currentSuite = suite;
     }
   }
-}
+};
 
 TAPReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper'];
 

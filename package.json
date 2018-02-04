@@ -1,11 +1,11 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "description": "a Karma TAP Reporter and Prettifier",
   "main": "index.js",
   "scripts": {
     "karma": "karma start",
-    "lint": "eslint . --ext .js",
+    "lint": "semistandard --fix --verbose | snazzy",
     "testonly": "npm run karma",
     "test": "npm run lint && npm run testonly"
   },
@@ -27,18 +27,18 @@
     "tape"
   ],
   "peerDependencies": {
-    "karma-tap": "3.x.x"
+    "karma-tap": "4.x.x"
   },
   "devDependencies": {
-    "eslint": "3.x.x",
-    "eslint-config-standard-deviation--es5": "1.x.x",
-    "eslint-modules-standard-deviation--es5": "1.x.x",
     "faucet": "*",
-    "karma": "1.x.x",
-    "karma-tap": "3.x.x",
-    "karma-jsdom-launcher": "4.x.x",
+    "jsdom": "9.x.x",
+    "karma": "2.x.x",
+    "karma-tap": "4.x.x",
+    "karma-jsdom-launcher": "6.x.x",
     "karma-browserify": "5.x.x",
-    "browserify": "13.x.x",
+    "semistandard": "*",
+    "snazzy": "*",
+    "browserify": "15.x.x",
     "watchify": "3.x.x",
     "tape": "4.x.x"
   },

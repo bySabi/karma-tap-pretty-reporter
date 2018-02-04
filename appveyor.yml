@@ -1,11 +1,12 @@
 environment:
   matrix:
-    - nodejs_version: '4' # old LTS
-    - nodejs_version: '5' # dev
-    - nodejs_version: '6' # new LTS
+    - nodejs_version: '4'
+    - nodejs_version: '6'
+    - nodejs_version: '8'
+    - nodejs_version: '9'
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm cache clear
+  - npm cache clear --force
   - npm i npm@latest -g
   - set PATH=%APPDATA%\npm;%PATH%
   - set CONTINUOUS_INTEGRATION=true
@@ -19,4 +20,4 @@ build: off
 test_script:
   - node --version
   - npm --version
-  - npm test
+- npm test
