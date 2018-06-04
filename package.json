@@ -7,6 +7,8 @@
     "karma": "karma start",
     "lint": "semistandard --fix --verbose | snazzy",
     "testonly": "npm run karma",
+    "travis": "npm run build-npm && npm test",
+    "appveyor": "npm run build-npm && npm test",
     "test": "npm run lint && npm run testonly"
   },
   "repository": {
