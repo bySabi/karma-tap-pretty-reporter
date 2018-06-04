@@ -124,7 +124,7 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   function writeSuite (suite) {
     suite = suite.join(' ').replace(/\./g, '_');
     if (currentSuite !== suite) {
-      write(suite);
+      write(suite + EOL);
       currentSuite = suite;
     }
   }

@@ -4,10 +4,17 @@ environment:
     - nodejs_version: '6'
     - nodejs_version: '8'
     - nodejs_version: '9'
+    - nodejs_version: '10'
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm cache clear --force
-  - npm i npm@latest -g
+  - ps: >-
+      if ($env:nodejs_version -eq "4") {
+        npm install npm@latest-5 -g
+      } else {
+        npm install npm@latest -g
+      }
+  - npm --version
   - set PATH=%APPDATA%\npm;%PATH%
   - set CONTINUOUS_INTEGRATION=true
   - set CI=true
@@ -19,5 +26,5 @@ matrix:
 build: off
 test_script:
   - node --version
-  - npm --version
-  - npm test
+  - npm run appveyor
+

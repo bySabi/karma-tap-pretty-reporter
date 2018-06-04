@@ -1,6 +1,6 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "a Karma TAP Reporter and Prettifier",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,8 @@
   },
   "author": "bySabi Files <> (https://github.com/bySabi)",
   "contributors": [
-    "Rostyslav Diachok <> (https://github.com/infernalmaster)"
+    "Rostyslav Diachok <> (https://github.com/infernalmaster)",
+    "VitProg <> (https://github.com/VitProg)"
   ],
   "license": "ISC"
 }
