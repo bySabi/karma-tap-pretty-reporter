@@ -96,6 +96,7 @@ tapReporter: {
 
 ### contributors
 * Rostyslav Diachok <> [@infernalmaster](https://github.com/infernalmaster)
+* VitProg <> [@VitProg](https://github.com/VitProg)
 
 ## Contributing
 * Documentation improvement
