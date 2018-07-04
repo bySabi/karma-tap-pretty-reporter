@@ -4,7 +4,6 @@
 [![npm downloads](https://img.shields.io/npm/dm/karma-tap-pretty-reporter.svg?style=flat-square)](https://www.npmjs.com/package/karma-tap-pretty-reporter)
 [![Build Status](https://travis-ci.org/bySabi/karma-tap-pretty-reporter.svg?branch=master)](https://travis-ci.org/bySabi/karma-tap-pretty-reporter)
 [![Windows Tests](https://img.shields.io/appveyor/ci/bySabi/karma-tap-pretty-reporter/master.svg?label=Windows%20Tests)](https://ci.appveyor.com/project/bySabi/karma-tap-pretty-reporter)
-[![bitHound Overall Score](https://www.bithound.io/github/bySabi/karma-tap-pretty-reporter/badges/score.svg)](https://www.bithound.io/github/bySabi/karma-tap-pretty-reporter)
 [![Donate](https://img.shields.io/badge/$-support-green.svg?style=flat-square)](https://paypal.me/bySabi/10)
 
 > a Karma reporter plugin for `report` and `prettify` TAP test results
