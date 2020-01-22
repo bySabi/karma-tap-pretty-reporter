@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 var EOL = require('os').EOL;
 
-var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
+var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper, formatError) {
   var log = logger.create('karma-tap-pretty-reporter');
   var config = rootConfig.tapReporter || {};
   var disableStdout = config.disableStdout === true;
@@ -66,7 +66,7 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
     write('not ok ' + ++numbers[browser.id] + ' ' + result.description + EOL);
     write('  ---' + EOL);
     for (var key in resultLog) {
-      write('    ' + key + ': ' + resultLog[key] + EOL);
+      write(formatError('    ' + key + ': ' + resultLog[key] + EOL));
     }
     write('  ...' + EOL);
   };
@@ -130,7 +130,7 @@ var TAPReporter = function (baseReporterDecorator, rootConfig, logger, helper) {
   }
 };
 
-TAPReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper'];
+TAPReporter.$inject = ['baseReporterDecorator', 'config', 'logger', 'helper', 'formatError'];
 
 module.exports = {
   'reporter:tap-pretty': ['type', TAPReporter]
