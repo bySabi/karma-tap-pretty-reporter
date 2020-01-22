@@ -6,6 +6,8 @@ node_js:
   - '8'
   - '9'
   - '10'
+  - '12'
+  - '13'
 before_install:
   - if [[ "`node --version`" = v4* ]]; then
       npm install npm@latest-5 -g;
