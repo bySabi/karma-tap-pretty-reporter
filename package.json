@@ -1,6 +1,6 @@
 {
   "name": "karma-tap-pretty-reporter",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "a Karma TAP Reporter and Prettifier",
   "main": "index.js",
   "scripts": {
